@@ -1,4 +1,4 @@
 require_relative 'sum'
 
 calculatorx = Sum.new
-calculatorx.calculator
+calculatorx.system_initializer
