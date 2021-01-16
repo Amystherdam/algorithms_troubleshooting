@@ -3,10 +3,9 @@ class Sum
   ERROR_MESSAGE = 'It is not a number valid, try again'
 
   def system_initializer
-    total_sum = 0
-    first_input_walker INITIAL_VALUE
-    number_adder INITIAL_VALUE
-    presenter_and_calculator_sum
+    first_input_walker(INITIAL_VALUE)
+    number_adder(INITIAL_VALUE)
+    presenter_and_calculator_sum()
   end
 
   def first_input_walker input
@@ -16,7 +15,7 @@ class Sum
     
       input = INITIAL_VALUE if input == '0'
       
-      error_handler_integer_type(input)
+      error_handler_integer_type_for_first_input(input)
     end
     @first_valid_input = input
   end
@@ -42,7 +41,15 @@ class Sum
     end
   end
 
+  def error_handler_integer_type_for_first_input input
+    begin
+      Integer(input)
+    rescue
+      puts ERROR_MESSAGE
+    end
+  end
+
   def presenter_and_calculator_sum
-    puts "Total of sum: #{@total_sum + @first_valid_input.to_i}"
+    puts "\nTotal of sum: #{@total_sum + @first_valid_input.to_i}"
   end  
 end

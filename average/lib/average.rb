@@ -3,9 +3,9 @@ class Average
   ERROR_MESSAGE = 'It is not a number valid, try again'
 
   def system_initializer
-    first_input_walker WORD_DEFAULT
-    creator_data WORD_DEFAULT
-    presenter_and_calculator_average
+    first_input_walker(WORD_DEFAULT)
+    creator_data(WORD_DEFAULT)
+    presenter_and_calculator_average()
   end
 
   private
@@ -17,7 +17,7 @@ class Average
 
         input = WORD_DEFAULT if input == '0'
 
-        error_handler_integer_type input
+        error_handler_integer_type_for_first_input(input)
       end
       @first_valid_input = input
     end
@@ -46,7 +46,15 @@ class Average
       end
     end
 
+    def error_handler_integer_type_for_first_input input
+      begin
+        Integer(input)
+      rescue
+        puts ERROR_MESSAGE
+      end
+    end
+
     def presenter_and_calculator_average
-      puts "The média is: #{(@total_for_average + @first_valid_input.to_f) / (@counter_iterations + 1)}"
+      puts "\nThe média is: #{(@total_for_average + @first_valid_input.to_f) / (@counter_iterations + 1)}"
     end  
 end
