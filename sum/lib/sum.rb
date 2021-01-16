@@ -1,6 +1,6 @@
-class SumInteger
+class Sum
   WORD_DEFAULT = 'default'
-  ERROR_MESSAGE = 'It is not a number valid, Try again'
+  ERROR_MESSAGE = 'It is not a number valid, try again'
 
   def calculator
     first_input_number = WORD_DEFAULT
